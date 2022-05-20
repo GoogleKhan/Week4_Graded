@@ -6,7 +6,8 @@
         Add Books
       </button>&nbsp;&nbsp; -->
       <button type="button" routerLink="/wishlist" class="btn-btn-warning">WishList</button>
-      <button style="background-color: rgb(49, 139, 0); color: white;" routerLink="/login" type="button" class="btn-btn-danger mx-2">
+      <button style="background-color: rgb(49, 139, 0); color: white;" routerLink="/login" type="button"
+        class="btn-btn-danger mx-2">
         Log Out
       </button>
 
@@ -22,25 +23,18 @@
       <th scope="col">No.</th>
       <th scope="col">Book Name</th>
       <th scope="col">Pages</th>
-       <th scope="col">Author</th>
+      <th scope="col">Author</th>
     </tr>
   </thead>
 
   <tbody>
-    <tr *ngFor="let student of studentData">
-      <td>{{student.id}}</td>
-      <td>{{student.name}}</td>
-      <td>{{student.roll}}</td>
-      <td>{{student.email}}</td>
-            <!-- <td>{{student.email}}</td>
-      <td>{{student.mobile}}</td>
-      <td>{{student.salary}}</td> -->
-      <td *ngIf=!viewonly>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- <button (click)="onUpdate(student)" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>&nbsp;&nbsp; -->
-        <button type="button" (click)="addtowishlist(student)" class="btn btn-danger">{{!student.wishlist ? 'add to wish' : 'remove form wish'}}</button>&nbsp;&nbsp;
-        <!-- <button (click)="deleteStudentDetails(student)"  type="button" class="btn btn-danger">Delete</button> -->
-      </td>
+    <tr *ngFor="let book of bookData">
+      <td>{{book.id}}</td>
+      <td>{{book.name}}</td>
+      <td>{{book.pages}}</td>
+      <td>{{book.author}}</td>
+
+
     </tr>
   </tbody>
 </table>

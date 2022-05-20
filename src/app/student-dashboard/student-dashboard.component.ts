@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { ApiService } from '../shared/api.service';
+import { Book } from './Book';
 import { StudentModel } from './student-dashboard.model';
 @Component({
   selector: 'app-student-dashboard',
@@ -12,6 +13,10 @@ export class StudentDashboardComponent implements OnInit {
   formValue!: FormGroup;
   studentModelObj : StudentModel = new StudentModel();
   studentData !: any;
+
+  bokkObj : Book = new Book();
+  bookData: Book[] =[];
+
   viewonly:boolean = false;
   constructor(private formBuilder : FormBuilder, private api: ApiService, private route : Router) {
     this.route.events.subscribe((event) => {
@@ -32,6 +37,21 @@ export class StudentDashboardComponent implements OnInit {
       salary:['']
     })
     this.getStudentDetails()
+
+    this.getBookDetails()
+  }
+  getBookDetails() {
+   
+    let book1 :Book= new Book();
+    book1.id=1;
+    book1.name='Two States';
+    book1.author= 'Mere papa';
+    book1.pages= 1;
+
+    this.bookData.push(book1);
+
+    return this.bookData;
+    
   }
 
   postStudentDetails(){
